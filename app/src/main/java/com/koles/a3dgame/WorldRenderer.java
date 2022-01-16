@@ -140,11 +140,11 @@ public class WorldRenderer {
     private void renderExplosion(GL10 gl, Vector3 position, float stateTime){
         TextureRegion frame = Assets.explosionAnim.getKeyFrame(stateTime,
                 Animation.ANIMATION_NONLOOPING);
-        gl.glEnable(GL10.GL_TEXTURE_2D);
+        gl.glEnable(GL10.GL_BLEND);
         gl.glPushMatrix();
         gl.glTranslatef(position.x, position.y, position.z);
         batch.beginBatch(Assets.items);
-        batch.drawSprite(960,310,128,128, frame);
+        batch.drawSprite(0,0,12,12, frame);
         batch.endBatch();
         gl.glPopMatrix();
         gl.glDisable(GL10.GL_BLEND);

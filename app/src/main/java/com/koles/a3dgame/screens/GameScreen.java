@@ -65,12 +65,12 @@ public class GameScreen extends GLScreen {
         };
         world.setWorldListener(listener);
         renderer = new WorldRenderer(glGraphics);
-        pauseBounds = new Rectangle();
-        resumeBounds = new Rectangle();
-        quitBounds = new Rectangle();
-        shotBounds = new Rectangle();
-        leftBounds = new Rectangle();
-        rightBounds = new Rectangle();
+        pauseBounds = new Rectangle(1130, 570, 150, 150);
+        resumeBounds = new Rectangle(450, 260, 380, 100);
+        quitBounds = new Rectangle(450, 360, 380, 100);
+        shotBounds = new Rectangle(1130, 0, 150, 150);
+        leftBounds = new Rectangle(0, 0, 150,150);
+        rightBounds = new Rectangle(980, 0, 150, 150);
         lastScore = 0;
         lastLives = world.ship.lives;
         lastWaves = world.waves;
@@ -269,7 +269,7 @@ public class GameScreen extends GLScreen {
         batch.endBatch();
 
         gl.glDisable(GL10.GL_BLEND);
-        gl.glDisable(GL10.GL_TEXTURE_2D;
+        gl.glDisable(GL10.GL_TEXTURE_2D);
     }
     @Override
     public void pause() {
