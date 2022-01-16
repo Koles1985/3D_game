@@ -28,10 +28,11 @@ public class SettingsScreen extends GLScreen {
         super(game);
         guiCam = new Camera2D(glGraphics, 1280, 720);
         batcher = new SpriteBatcher(glGraphics, 10);
-        touchBounds = new Rectangle();
-        accelBounds = new Rectangle();
-        soundBounds = new Rectangle();
-        backBounds = new Rectangle();
+        touchPoint = new Vector2();
+        touchBounds = new Rectangle(100, 285,150, 150);
+        accelBounds = new Rectangle(320, 285, 150, 150);
+        soundBounds = new Rectangle(560, 285, 150, 150);
+        backBounds = new Rectangle(0, 0, 150, 150);
     }
 
     @Override
@@ -95,14 +96,14 @@ public class SettingsScreen extends GLScreen {
         gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 
         batcher.beginBatch(Assets.items);
-        batcher.drawSprite(, , , ,
+        batcher.drawSprite(100, 285,150,150,
                 Settings.touchEnabled ? Assets.touchRegion : Assets.touchEnabledRegion);
-        batcher.drawSprite(, , , ,
+        batcher.drawSprite(320, 285, 150, 150,
                 Settings.touchEnabled ? Assets.accelRegion : Assets.accelEnabledRegion);
-        batcher.drawSprite(, , , ,
+        batcher.drawSprite(560, 285, 150, 150,
                 Settings.soundEnabled ? Assets.soundRegion : Assets.soundEnabledRegion);
 
-        batcher.drawSprite(, , , , Assets.leftRegion);
+        batcher.drawSprite(0, 0, 150, 150, Assets.leftRegion);
         batcher.endBatch();
 
         gl.glDisable(GL10.GL_BLEND);

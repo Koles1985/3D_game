@@ -27,8 +27,8 @@ public class MainMenuScreen extends GLScreen {
         guiCam = new Camera2D(glGraphics, 1280, 720);
         batcher = new SpriteBatcher(glGraphics, 10);
         touchPos = new Vector2();
-        playBounds = new Rectangle();
-        settingsBounds = new Rectangle();
+        playBounds = new Rectangle(520, 280, 240, 100);
+        settingsBounds = new Rectangle(400, 380, 480, 100);
     }
 
     @Override
@@ -65,12 +65,15 @@ public class MainMenuScreen extends GLScreen {
         gl.glEnable(GL10.GL_TEXTURE_2D);
 
         batcher.beginBatch(Assets.background);
-        batcher.drawSprite(640, 360, 1280, 720, Assets.backgroundRegion);
+        batcher.drawSprite(640, 360, 1280, 720, Assets.mainMenuRegion);
         batcher.endBatch();
 
         gl.glEnable(GL10.GL_BLEND);
         gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 
+        /*не нужная часть кода так как фоновая картинка содержит
+        элементы меню и логотип.
+        ______________________________________________________________________
 
         batcher.beginBatch(Assets.items);
         batcher.drawSprite(, , , , Assets.logoRegion);
@@ -79,7 +82,7 @@ public class MainMenuScreen extends GLScreen {
 
         gl.glDisable(GL10.GL_BLEND);
         gl.glDisable(GL10.GL_TEXTURE_2D);
-
+        */
 
     }
 
